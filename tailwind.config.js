@@ -11,15 +11,10 @@ export default {
       lg: '976px',
       xl: '1440px',
     },
-    colors: {
-    },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
-    },
-    extend: {
     }
   },
-  plugins: [],
 }
 
