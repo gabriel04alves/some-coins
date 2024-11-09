@@ -1,7 +1,10 @@
 <script setup>
-import CardMain from "@/components/CardMain.vue";
+import CardComponent from "@/components/CardComponent.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
+
 </script>
 
 <template>
-  <CardMain/>
+  <HeaderComponent />
+  <CardComponent />
 </template>
