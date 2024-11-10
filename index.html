@@ -2,13 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Some Coins</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     />
-    <title>Some coins</title>
+    <style>
+      :root {
+        --bulma-primary-h: 0deg;
+        --bulma-primary-s: 0%;
+        --bulma-primary-l: 99%;
+        --bulma-link-h: 160deg;
+        --bulma-link-l: 19%;
+        --bulma-skeleton-background: (HSL 180°, 0%, 100%);
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
