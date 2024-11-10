@@ -11,7 +11,9 @@
                     <h2>Origem:</h2>
                     <div class="select">
                         <select v-model="fromCurrency">
-                            <option v-for="(currency, code) in currencies" :key="code" :value="code">{{ code }}</option>
+                            <option v-for="(currency, code) in currencies" :key="code" :value="code">{{
+                                currency.name.split('/')[0].trim() }}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -24,7 +26,8 @@
                     <h2 class="mt-3">Destino:</h2>
                     <div class="select">
                         <select class="select" v-model="toCurrency">
-                            <option v-for="(currency, code) in currencies" :key="code" :value="code">{{ code }}</option>
+                            <option v-for="(currency, code) in currencies" :key="code" :value="code">{{
+                                currency.name.split('/')[0].trim() }}</option>
                         </select>
                     </div>
                 </div>
@@ -38,12 +41,12 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { fetchCurrencies } from '../services/fetchCurrencies';
-import { convertCurrency } from '../utils/currencyConverter';
+import { fetchCurrencies } from '../composables/fetchCurrencies';
+import { convertCurrency } from '../composables/currencyConverter';
 
 const fromCurrency = ref('');
 const toCurrency = ref('');
-const amount = ref(1);
+const amount = ref();
 const result = ref('Some coins');
 const currencies = ref({});
 
@@ -56,6 +59,11 @@ const loadCurrencies = async () => {
 }
 
 const handleConvertCurrency = async () => {
+    if (!amount.value || amount.value <= 0) {
+        result.value = "Tente novamente com um valor válido.";
+        return;
+    }
+
     if (fromCurrency.value === toCurrency.value) {
         result.value = amount.value;
         return;
@@ -63,7 +71,7 @@ const handleConvertCurrency = async () => {
 
     try {
         let convertedValue = await convertCurrency(fromCurrency.value, toCurrency.value, amount.value);
-        result.value = `${amount.value} ${fromCurrency.value} equivalem à ${convertedValue} ${toCurrency.value}`;
+        result.value = `${amount.value} ${fromCurrency.value} equivalem à ${convertedValue} `;
     } catch (error) {
         result.value = "Erro ao converter, tente novamente...";
         console.error("Erro ao converter a moeda:", error);
