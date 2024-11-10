@@ -1,35 +1,80 @@
-# some-coins (api link: https://docs.awesomeapi.com.br/api-de-moedas)
+## Some Coins
 
-This template should help get you started developing with Vue 3 in Vite.
+**Some Coins** é um aplicativo web para conversão de moedas, desenvolvido como projeto de estudo. Ele oferece uma interface simples e rápida, consumindo dados de câmbio da [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
 
-## Recommended IDE Setup
+## Tecnologias Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue.js 3** - Framework JavaScript para construção de interfaces reativas.
+- **JavaScript** - Linguagem de programação principal do projeto.
+- **Bulma CSS** - Framework CSS para estilização e layout.
 
-## Customize configuration
+## Estrutura do Projeto
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+.
+├── index.html
+├── jsconfig.json
+├── package.json
+├── package-lock.json
+├── public
+│   └── favicon.svg
+├── README.md
+├── src
+│   ├── App.vue                  # Componente principal da aplicação
+│   ├── assets                   # Arquivos de estilo
+│   │   ├── main.css
+│   │   └── reset.css
+│   ├── components               # Componentes reutilizáveis
+│   │   ├── CardComponent.vue
+│   │   └── FooterComponent.vue
+│   ├── composables              # Funções utilitárias reutilizáveis
+│   │   ├── currencyConverter.js
+│   │   └── fetchCurrencies.js
+│   ├── main.js                  # Arquivo principal da aplicação
+│   ├── router                   # Configuração de rotas
+│   │   └── index.js
+│   ├── services                 # Integração com APIs externas
+│   │   └── api.js
+│   ├── utils                    # Funções auxiliares
+│   │   └── formatCurrency.js
+│   └── views                    # Páginas principais
+│       ├── AboutView.vue
+│       └── HomeView.vue
+└── vite.config.js               # Configuração do Vite
 ```
 
-### Compile and Hot-Reload for Development
+## Instalação e Execução
 
-```sh
-npm run dev
-```
+### Pré-requisitos
 
-### Compile and Minify for Production
+- **Node.js** versão 14 ou superior
+- **NPM** versão 6 ou superior
 
-```sh
-npm run build
-```
+### Passo a Passo
 
-### Lint with [ESLint](https://eslint.org/)
+1. **Instalar dependências**
 
-```sh
-npm run lint
-```
+   ```sh
+   npm install
+   ```
+
+2. **Compilar e Rodar em Ambiente de Desenvolvimento**
+
+   ```sh
+   npm run dev
+   ```
+
+3. **Compilar para Produção**
+
+   ```sh
+   npm run build
+   ```
+
+4. **Linter**
+   ```sh
+   npm run lint
+   ```
+
+---
+
+Este projeto foi criado com Vue 3 e Vite, para mais informações sobre configuração consulte a [documentação do Vite](https://vitejs.dev/config/).
